@@ -1,0 +1,32 @@
+
+/*
+=================================
+INTRODUCTION TO CSS
+=================================
+
+CSS stands for Cascading Style Sheets.
+
+CSS is used to style HTML webpages.
+
+We use CSS to control:
+1. Colors
+2. Fonts
+3. Backgrounds
+4. Spacing
+5. Layouts
+6. Responsive design
+*/
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f8f4;
+    color: #333333;
+}
+
+h1 {
+    color: green;
+}
+
+p {
+    font-size: 18px;
+}
