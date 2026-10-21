@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+    <style>
+        /* Element Selector */
+        div{
+            background-color: red;
+        }
+
+        /* Class Selector */
+        .yellow{
+            background-color: yellow;
+        }
+
+        /* Id Selector */
+        #green{
+            background-color: green;
+        }
+
+        /* Child Selector */
+        div > p{
+            color: blue;
+            background-color: pink;
+        }
+
+        /* Decendent Selector */
+        div  p{
+            color: blue;
+            background-color: pink;
+        }
+
+        /* Universal Secector */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Psudo Secector */
+        a:visited {
+            color: blue;
+        }
+
+        a:link {
+            color: darkgreen;
+        }
+
+        a:active{
+            background-color: brown;
+        }
+
+        a:hover{
+            background-color: blueviolet;
+        }
+
+        p:first-child{
+            background-color: aqua;
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+    <main class="one">
+        <p>I am first</p>
+        <p>I am second</p>
+
+    </main>
+    <div>I am a div
+        <article> 
+        <p>I am a para inside div</p>
+        </article>
+    </div>
+
+    <div class="yellow">I am a 2nd div</div>
+
+    <div id="green">I am 3rd div</div>
+
+    
+        <!-- <a href="https://www.google.com">Go to Google</a>
+        <a href="https://www.facebook.com">Go to facebook</a> -->
+
+
+        <a href="https:www.insta.com">Go to insta</a>
+        <a href="https:www.twitter.com">Go to twitter</a>
+    
+    
+</body>
+</html>
