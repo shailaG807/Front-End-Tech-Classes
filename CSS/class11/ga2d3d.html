@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Effects for Beginners</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6ff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #6c2bd9;
+        }
+
+        h2 {
+            color: #ffffff;
+            background: linear-gradient(to right, #ff416c, #7c4dff);
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        h3 {
+            color: #333366;
+        }
+
+        section {
+            background-color: white;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px #dddddd;
+        }
+
+        .demo {
+            width: 180px;
+            height: 100px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        /* 1. GRADIENTS */
+
+        .linear {
+            background: linear-gradient(to right, red, blue);
+        }
+
+        .radial {
+            background: radial-gradient(circle, yellow, orange, red);
+            color: black;
+        }
+
+        .multi {
+            background: linear-gradient(45deg, #00c9ff, #92fe9d, #f857a6);
+        }
+
+        /* 2. ANIMATIONS */
+
+        .moving-box {
+            background: linear-gradient(45deg, #ff416c, #ffb347);
+            animation: move 3s infinite alternate;
+        }
+
+        @keyframes move {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(200px);
+            }
+        }
+
+        .color-box {
+            background-color: #7c4dff;
+            animation: changeColor 3s infinite alternate;
+        }
+
+        @keyframes changeColor {
+            from {
+                background-color: #7c4dff;
+            }
+
+            to {
+                background-color: #00b894;
+            }
+        }
+
+        .rotate-box {
+            background-color: #e84393;
+            animation: spin 3s infinite linear;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 3. 2D TRANSFORMS */
+
+        .transform-box {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #00c6ff, #0072ff);
+            color: white;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            margin: 30px;
+            transition: transform 0.5s;
+        }
+
+        button {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /* 4. 3D TRANSFORM */
+
+        .scene {
+            width: 180px;
+            height: 110px;
+            perspective: 600px;
+            margin: 20px 0;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff512f, #dd2476);
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 1s;
+        }
+
+        .scene:hover .card {
+            transform: rotateY(180deg);
+        }
+
+        footer {
+            text-align: center;
+            color: #6c2bd9;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🌈 CSS Effects for Beginners</h1>
+
+    <p style="text-align:center;">
+        Learn Gradients, Animations, 2D Transforms and 3D Transforms!
+    </p>
+
+    <!-- SECTION 1: GRADIENTS -->
+
+    <section>
+        <h2>1. CSS Gradients 🌈</h2>
+
+        <p>
+            A gradient blends two or more colours together.
+        </p>
+
+        <h3>Linear Gradient</h3>
+        <p>Colours blend from one direction to another.</p>
+
+        <div class="demo linear">Red to Blue</div>
+
+        <h3>Radial Gradient</h3>
+        <p>Colours spread outward from the centre.</p>
+
+        <div class="demo radial">Radial Gradient</div>
+
+        <h3>Multiple Colour Gradient</h3>
+        <p>Three colours blend together.</p>
+
+        <div class="demo multi">Multi-Colour</div>
+    </section>
+
+    <!-- SECTION 2: ANIMATIONS -->
+
+    <section>
+        <h2>2. CSS Animations 🎬</h2>
+
+        <p>
+            Animation makes an element move or change automatically.
+        </p>
+
+        <h3>Moving Animation</h3>
+        <p>The box moves from left to right.</p>
+
+        <div class="demo moving-box">Moving Box</div>
+
+        <h3>Colour Changing Animation</h3>
+        <p>The background colour changes continuously.</p>
+
+        <div class="demo color-box">Colour Change</div>
+
+        <h3>Rotating Animation</h3>
+        <p>The box rotates continuously.</p>
+
+        <div class="demo rotate-box">Rotate</div>
+    </section>
+
+    <!-- SECTION 3: 2D TRANSFORMS -->
+
+    <section>
+        <h2>3. CSS 2D Transforms 🔄</h2>
+
+        <p>
+            2D transforms change the position, size, angle,
+            or shape of an element on a flat page.
+        </p>
+
+        <p>
+            Click each button and observe what happens to the blue box.
+        </p>
+
+        <div class="transform-box" id="myBox">
+            My Box
+        </div>
+
+        <button onclick="moveBox()">Move Right</button>
+        <button onclick="rotateBox()">Rotate</button>
+        <button onclick="growBox()">Increase Size</button>
+        <button onclick="shrinkBox()">Decrease Size</button>
+        <button onclick="slantBox()">Slant</button>
+        <button onclick="resetBox()">Reset</button>
+
+        <h3>What do these actions mean?</h3>
+
+        <ul>
+            <li><strong>Move Right:</strong> Moves the box 100 pixels right.</li>
+            <li><strong>Rotate:</strong> Turns the box by 45 degrees.</li>
+            <li><strong>Increase Size:</strong> Makes the box bigger.</li>
+            <li><strong>Decrease Size:</strong> Makes the box smaller.</li>
+            <li><strong>Slant:</strong> Slants the box sideways.</li>
+            <li><strong>Reset:</strong> Returns the box to its original shape.</li>
+        </ul>
+    </section>
+
+    <!-- SECTION 4: 3D TRANSFORMS -->
+
+    <section>
+        <h2>4. CSS 3D Transforms 🧊</h2>
+
+        <p>
+            3D transforms make an element appear to rotate in space.
+        </p>
+
+        <h3>Hover Over the Card</h3>
+        <p>Move your mouse over the card to see the 3D rotation.</p>
+
+        <div class="scene">
+            <div class="card">
+                Hello Students!
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Keep Learning CSS! 💻</h3>
+        <p>Practice every effect and observe the changes.</p>
+    </footer>
+
+    <script>
+        const box = document.getElementById("myBox");
+
+        function moveBox() {
+            box.style.transform = "translateX(100px)";
+        }
+
+        function rotateBox() {
+            box.style.transform = "rotate(45deg)";
+        }
+
+        function growBox() {
+            box.style.transform = "scale(1.5)";
+        }
+
+        function shrinkBox() {
+            box.style.transform = "scale(0.5)";
+        }
+
+        function slantBox() {
+            box.style.transform = "skew(20deg)";
+        }
+
+        function resetBox() {
+            box.style.transform = "none";
+        }
+    </script>
+
+</body>
+</html>
