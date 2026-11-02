@@ -1,0 +1,38 @@
+8. Give students one small practical activity
+Ask students to create a file called day1-practice.js.
+
+  Task: Student Information
+
+let studentName = "Anjali";
+let age = 21;
+let course = "JavaScript";
+let isEnrolled = true;
+
+console.log("Student Name:", studentName);
+console.log("Age:", age);
+console.log("Course:", course);
+console.log("Enrolled:", isEnrolled);
+
+// Change the age
+age = 22;
+
+console.log("Updated Age:", age);
+
+// Check age
+console.log(age >= 18);
+
+// String operations
+console.log(studentName.toUpperCase());
+console.log(studentName.length);
+
+// Array operations
+let subjects = ["HTML", "CSS", "JavaScript"];
+
+subjects.push("React");
+
+console.log(subjects);
+console.log(subjects.length);
+
+
+
+Ask them to change the name, age, course and subjects and observe the output.
