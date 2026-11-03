@@ -1,0 +1,35 @@
+Student result checker
+
+let student = {
+    name: "Anjali",
+    marks: 75
+};
+
+// Check result
+if (student.marks >= 35) {
+    console.log(student.name + " has passed");
+} else {
+    console.log(student.name + " has failed");
+}
+
+// Display numbers from 1 to 5
+for (let i = 1; i <= 5; i++) {
+    console.log(i);
+}
+
+// Handle invalid marks
+try {
+    if (student.marks > 100 || student.marks < 0) {
+        throw new Error("Invalid marks");
+    }
+
+    console.log("Marks are valid");
+
+} catch (error) {
+    console.log(error.message);
+}
+
+// Ternary operator
+let grade = student.marks >= 60 ? "Good" : "Needs improvement";
+
+console.log(grade);
