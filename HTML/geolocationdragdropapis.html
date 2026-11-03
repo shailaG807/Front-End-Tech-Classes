@@ -1,0 +1,293 @@
+<!-- Today's HTML Class – Geolocation, Drag & Drop and APIs
+
+1. HTML Geolocation API
+
+"Whenever you open Google Maps, how does it know where you are currently standing?"
+Geolocation helps a website find the user's current geographical location (latitude and longitude), with the user's permission.
+Real-life examples:
+- Google Maps finds your current location.
+- Food delivery websites identify your delivery location.
+- Weather websites can show weather based on your location. -->
+
+<!-- Explain these two words:
+- Latitude: Tells us the north-south position.
+- Longitude: Tells us the east-west position.
+
+
+Explain the important code
+Code	Simple meaning
+navigator	Gives access to browser features
+geolocation	Accesses location functionality
+getCurrentPosition()	Gets the current location
+position.coords.latitude	Gets latitude
+position.coords.longitude	Gets longitude
+
+
+
+2. HTML Drag and Drop API
+
+"Have you ever dragged a file from one folder and dropped it into another folder?"
+That's exactly the concept of Drag and Drop!
+It allows users to click, hold, drag and drop an element from one place to another on a webpage.
+
+Real-life examples:
+- Moving tasks in Trello.
+- Uploading files by dragging them.
+- Moving items between shopping lists.
+
+Explain the important code
+Code	Meaning
+draggable="true"	Makes an element draggable
+ondragstart	Executes when dragging starts
+ondragover	Executes when dragging over a drop area
+ondrop	Executes when the item is dropped
+dataTransfer	Carries data while dragging
+appendChild()	Moves an element inside another element
+
+3. HTML APIs (Application Programming Interfaces)
+"Suppose you go to a restaurant. You don't go directly into the kitchen and prepare your food, right?"
+
+Instead:
+1. You look at the menu.
+2. You place an order with the waiter.
+3. The waiter communicates with the kitchen.
+4. The kitchen prepares the food.
+5. The waiter brings your food.
+An API works in a similar way!
+
+API = Application Programming Interface
+
+An API allows two software applications to communicate with each other.
+
+Real-life examples
+- Weather app gets weather information from a weather API.
+- Payment website communicates with a payment API.
+- Travel website gets flight information from an API.
+
+
+Geolocation: 	Finds the user's location
+Drag & Drop: 	Moves elements on a webpage
+API:	Allows applications to communicate -->
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Current Location</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 20px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #map {
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Find My Current Location</h2>
+
+    <button onclick="getLocation()">
+        Show My Location
+    </button>
+
+    <p id="result"></p>
+
+    <iframe
+        id="map"
+        width="100%"
+        height="400"
+        style="border:0"
+        loading="lazy">
+    </iframe>
+
+    <script>
+
+        function getLocation() {
+
+            if (navigator.geolocation) {
+
+                navigator.geolocation.getCurrentPosition(
+
+                    function(position) {
+
+                        let lat = position.coords.latitude;
+                        let lon = position.coords.longitude;
+
+                        document.getElementById("result").innerHTML =
+                            "Latitude: " + lat +
+                            "<br>Longitude: " + lon;
+
+                        // Display Google Map
+
+                        let mapURL =
+                            "https://maps.google.com/maps?q="
+                            + lat + "," + lon + "&z=15&output=embed";
+
+                        document.getElementById("map").src = mapURL;
+
+                    },
+
+                    function(error) {
+                        document.getElementById("result").innerHTML =
+                            "Unable to get your location. Please allow permission.";
+                    }
+
+                );
+
+            } else {
+
+                document.getElementById("result").innerHTML =
+                    "Geolocation is not supported by this browser.";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drag and Drop</title>
+
+    <style>
+        .box {
+            width: 200px;
+            height: 150px;
+            border: 2px solid black;
+            margin: 20px;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        #item {
+            background: lightblue;
+            padding: 15px;
+            cursor: grab;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Drag and Drop Example</h2>
+
+    <div class="box">
+        <p>Drag this item:</p>
+
+        <div id="item" draggable="true"
+             ondragstart="drag(event)">
+            Hello Students!
+        </div>
+    </div>
+
+    <div class="box"
+         ondragover="allowDrop(event)"
+         ondrop="drop(event)">
+
+        Drop Here
+
+    </div>
+
+    <script>
+
+        function drag(event) {
+            event.dataTransfer.setData(
+                "text", event.target.id
+            );
+        }
+
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        function drop(event) {
+            event.preventDefault();
+
+            let data = event.dataTransfer.getData("text");
+
+            event.target.appendChild(
+                document.getElementById(data)
+            );
+        }
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Example</title>
+</head>
+<body>
+
+    <h2>Get User Details</h2>
+
+    <button onclick="getUser()">
+        Get User
+    </button>
+
+    <h3 id="name"></h3>
+    <p id="email"></p>
+
+    <script>
+
+        function getUser() {
+
+            fetch("https://jsonplaceholder.typicode.com/users/1")
+
+            .then(response => response.json())
+
+            .then(data => {
+
+                document.getElementById("name").innerHTML =
+                    data.name;
+
+                document.getElementById("email").innerHTML =
+                    data.email;
+
+            });
+
+        }
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
