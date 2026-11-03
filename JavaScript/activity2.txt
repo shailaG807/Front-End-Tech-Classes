@@ -1,0 +1,20 @@
+Small classroom activity
+Ask students to create array-practice.js and complete these tasks:
+
+let subjects = ["HTML", "CSS", "JavaScript"];
+
+// 1. Add "React" at the end.
+
+// 2. Add "Python" at the beginning.
+
+// 3. Remove the last subject.
+
+// 4. Check whether "CSS" exists.
+
+// 5. Print the number of subjects.
+
+// 6. Print every subject using forEach().
+
+// 7. Arrange subjects alphabetically.
+
+Expected final practice: Students should use push(), unshift(), pop(), includes(), length, forEach() and sort().
