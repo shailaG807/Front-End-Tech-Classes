@@ -1,0 +1,31 @@
+Activity 1: Find the largest number (100, 200, 50)
+let a = 50;
+let b = 80;
+let c = 30;
+
+if (a > b && a > c) {
+    console.log("A is largest");
+} else if (b > a && b > c) {
+    console.log("B is largest");
+} else {
+    console.log("C is largest");
+}
+
+
+
+Activity 1: Online food delivery – Delivery charges
+
+
+Real-life situation: Delivery charges depend on the order amount.
+- Amount 2000 or above → Free delivery.
+- Amount 1000 or above → ₹20 delivery.
+- Amount 500 or above → ₹40 delivery.
+- Below 500 → ₹60 delivery.
+
+let amount = 1200;
+
+if (amount >= 2000) {
+    console.log("Free Delivery");
+} else if (amount >= 1000) {
+    console.log("Delivery Charge: Rs.20");
+}
