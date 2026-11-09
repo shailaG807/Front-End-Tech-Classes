@@ -1,0 +1,599 @@
+PART 1: JavaScript Functions
+1. What is a function?
+First, ask your students:
+
+"Imagine you want to make tea. Every day you follow the same steps: boil water, add tea powder, add milk and sugar. Instead of explaining all the steps every time, you can create one instruction called MAKE TEA and reuse it whenever needed."
+
+That's exactly what a function does!
+
+Definition: A function is a block of reusable code designed to perform a particular task.
+Simple example
+function greet() {
+    console.log("Hello Students!");
+}
+Explain each part:
+- function – Keyword used to create a function.
+- greet – Function name.
+- () – Parentheses.
+- {} – Function body.
+- console.log() – Task performed by the function.
+Important: Just defining a function does not execute it. We need to call it.
+*
+*
+*
+*
+*
+*
+2. Function definition and parameters
+What are parameters?
+Explain to students:
+
+"Imagine you are creating a function to greet different people. Instead of creating separate functions for every person's name, we can pass the name as a parameter."
+
+Example:
+function greet(name) {
+    console.log("Hello " + name);
+}
+
+Here:
+- name is a parameter.
+- It acts like a placeholder that receives a value.
+Now let's call it:
+greet("Neha");
+greet("Rahul");
+greet("Priya");
+
+Hello Neha
+Hello Rahul
+Hello Priya
+
+Explain the difference:
+Parameter	Argument
+Variable written in function definition	Actual value passed during function call
+name	"Neha"
+
+Another example: Shopping bill
+function calculateBill(price, quantity) {
+    let total = price * quantity;
+    console.log("Total Bill: " + total);
+}
+
+calculateBill(100, 3);
+
+
+Total Bill: 300
+
+*
+*
+*
+*
+*
+3. Function invocation (function calling)
+Definition: Function invocation means executing a function by calling its name.
+Example:
+function welcome() {
+    console.log("Welcome to JavaScript!");
+}
+
+// Function invocation
+welcome();
+
+Welcome to JavaScript!
+
+Explain these three steps:
+1. Function definition – Creating the function.
+2. Function invocation – Calling the function.
+3. Function execution – Running the statements inside it.
+You can also show them:
+function addition() {
+    console.log(10 + 20);
+}
+
+addition();
+addition();
+addition();
+
+30
+30
+30
+
+One function can be reused multiple times!
+*
+*
+*
+*
+*
+*
+*
+4. Function call() and apply()
+Tell students:
+
+"Sometimes we create a function, but we want to use it with different objects. JavaScript provides call() and apply() methods to do this."
+
+First, explain a very simple example.
+Using call()
+let student = {
+    name: "Neha"
+};
+
+function greet(city) {
+    console.log("Hello " + this.name);
+    console.log("City: " + city);
+}
+
+greet.call(student, "Bangalore");
+
+Hello Neha
+City: Bangalore
+
+Explain:
+- this refers to the object provided to call().
+- student is passed as the first argument.
+- "Bangalore" is passed as the function parameter.
+Using apply()
+let student = {
+    name: "Rahul"
+};
+
+function greet(city, course) {
+    console.log("Hello " + this.name);
+    console.log(city);
+    console.log(course);
+}
+
+greet.apply(student, ["Mysore", "JavaScript"]);
+
+Hello Rahul
+Mysore
+JavaScript
+
+
+Difference between call() and apply()
+call()	apply()
+Arguments are passed individually	Arguments are passed as an array
+call(obj, a, b)	apply(obj, [a, b])
+
+Easy trick to remember:
+- Call = Comma-separated arguments.
+- Apply = Array of arguments.
+
+*
+*
+*
+*
+*
+5. Function closures
+This is slightly advanced, so explain it using a real-life example.
+Real-life example: A bank account
+
+Imagine you have a bank account. Your balance is private. Other people cannot directly change it, but you can deposit money and check your balance through specific actions.
+
+JavaScript closures work similarly: an inner function remembers variables from its outer function, even after the outer function has finished executing.
+Example:
+function bankAccount() {
+
+    let balance = 1000;
+
+    function showBalance() {
+        console.log("Balance: " + balance);
+    }
+
+    return showBalance;
+}
+
+let account = bankAccount();
+
+account();
+account();
+Balance: 1000
+Balance: 1000
+
+
+Explain step by step:
+1. bankAccount() is the outer function.
+2. balance is a variable inside it.
+3. showBalance() is the inner function.
+4. The inner function remembers the balance variable.
+5. Even after the outer function finishes, the inner function can still access it.
+Important definition for notes: A closure is created when an inner function remembers and accesses variables from its outer function, even after the outer function has finished executing.
+**
+**
+**
+**
+**
+**
+PART 2: Events in JavaScript
+1. What are events?
+Start by asking your students:
+
+"What happens when you click a button on a website?"
+- A message appears.
+- A form gets submitted.
+- A page opens.
+- Something changes on the screen.
+
+Explain:
+
+"An event is an action or occurrence that happens in a browser. JavaScript can detect these events and perform an action in response."
+
+Real-life examples:
+User action	JavaScript event
+Clicking a button	onclick
+Changing a dropdown	onchange
+Moving mouse over an image	onmouseover
+Moving mouse away	onmouseout
+Pressing a keyboard key	onkeydown
+Loading a webpage	onload
+
+Now teach each one with a simple example.
+
+2. onclick event
+Definition: The onclick event occurs when a user clicks an element.
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Events</h2>
+
+<button onclick="showMessage()">Click Me</button>
+
+<script>
+function showMessage() {
+    alert("Hello Students!");
+}
+</script>
+
+</body>
+</html>
+
+Explain:
+- The user clicks the button.
+- onclick detects the click.
+- showMessage() executes.
+- An alert message appears.
+
+3. onchange event
+Definition: The onchange event occurs when the value of an input or select element changes and the change is committed.
+
+Real-life example: Selecting a course from a dropdown.
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Select Your Course</h3>
+
+<select onchange="showCourse(this.value)">
+    <option value="">Select Course</option>
+    <option value="HTML">HTML</option>
+    <option value="CSS">CSS</option>
+    <option value="JavaScript">JavaScript</option>
+</select>
+
+<p id="result"></p>
+
+<script>
+function showCourse(course) {
+    document.getElementById("result").innerHTML =
+        "You selected: " + course;
+}
+</script>
+
+</body>
+</html>
+Explain:
+- select creates a dropdown.
+- onchange detects the changed selection.
+- this.value gets the selected value.
+- The result appears inside the paragraph.
+
+4. onmouseover event
+Definition: This event occurs when the mouse pointer moves over an element.
+
+Example:
+<h2 onmouseover="changeColor(this)">
+    Move your mouse here
+</h2>
+
+<script>
+function changeColor(element) {
+    element.style.color = "red";
+}
+</script>
+
+Output: When students move the mouse over the heading, its text becomes red.
+
+5. onmouseout event
+Definition: This event occurs when the mouse pointer moves away from an element.
+Example:
+<h2
+    onmouseover="this.style.color='red'"
+    onmouseout="this.style.color='black'">
+
+    Move Mouse Here
+
+</h2>
+
+Explain:
+- Mouse enters the heading → Red.
+- Mouse leaves the heading → Black.
+6. onkeydown event
+Definition: The onkeydown event occurs when a user presses a keyboard key.
+
+Real-life example: Detecting which key a user presses.
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Press any key</h3>
+
+<input type="text" onkeydown="showKey(event)">
+
+<p id="result"></p>
+
+<script>
+function showKey(event) {
+    document.getElementById("result").innerHTML =
+        "You pressed: " + event.key;
+}
+</script>
+
+</body>
+</html>
+
+Explain:
+- onkeydown detects a key press.
+- event contains information about the event.
+- event.key tells us which key was pressed.
+
+7. onload event
+Definition: The onload event occurs when a webpage or resource has finished loading.
+Example:
+<!DOCTYPE html>
+<html>
+<body onload="welcome()">
+
+<h2>Welcome to our website</h2>
+
+<script>
+function welcome() {
+    alert("Website loaded successfully!");
+}
+</script>
+
+</body>
+</html>
+
+Explain:
+
+When the webpage finishes loading, the welcome() function executes.
+
+**
+**
+**
+**
+**
+**
+PART 3: Event Listener
+Now explain that there is another way to handle events in JavaScript without writing onclick directly inside HTML.
+8. Event Listener (addEventListener)
+Definition: addEventListener() is a JavaScript method that listens for a particular event and executes a function when that event happens.
+
+Tell students:
+
+"Imagine you are waiting for someone to call you. You are listening for a phone call. Similarly, JavaScript listens for events like clicks, mouse movements and keyboard presses."
+Basic syntax
+element.addEventListener("event", function() {
+    // Code to execute
+});
+Simple example: Button click
+<!DOCTYPE html>
+<html>
+<body>
+
+<button id="myButton">Click Me</button>
+
+<script>
+
+let button = document.getElementById("myButton");
+
+button.addEventListener("click", function() {
+    alert("Button clicked!");
+});
+
+</script>
+
+</body>
+</html>
+Explain line by line:
+1. getElementById() selects the button.
+2. addEventListener() attaches an event.
+3. "click" specifies which event to listen for.
+4. The function executes when the button is clicked.
+Important: Notice that we use "click" instead of onclick in addEventListener().
+9. Event Listener – One-time execution
+What if we want the button to work only once?
+
+JavaScript provides an option called once: true.
+
+Example:
+<button id="btn">Click Me</button>
+
+<script>
+
+let button = document.getElementById("btn");
+
+button.addEventListener("click", function() {
+    alert("You clicked the button!");
+}, { once: true });
+
+</script>
+
+<button id="btn">Click Me</button>
+
+<script>
+
+let button = document.getElementById("btn");
+
+button.addEventListener("click", function() {
+    alert("You clicked the button!");
+}, { once: true });
+
+</script>
+
+Explain to students:
+- First click → Alert appears.
+- Second click → Nothing happens.
+- Third click → Nothing happens.
+Why?
+
+Because { once: true } automatically removes the event listener after it executes once.
+
+10. Multiple Event Listeners
+Now explain:
+
+"Can we attach more than one event listener to the same button?"
+
+Yes!
+
+For example, when a student clicks a button:
+1. Show a welcome message.
+2. Change the heading color.
+3. Change the paragraph text.
+All three actions can happen from the same click.
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2 id="heading">Welcome Students</h2>
+
+<p id="message">Learn JavaScript Events</p>
+
+<button id="btn">Click Me</button>
+
+<script>
+
+let button = document.getElementById("btn");
+
+button.addEventListener("click", function() {
+    alert("Welcome!");
+});
+
+button.addEventListener("click", function() {
+    document.getElementById("heading").style.color = "blue";
+});
+
+button.addEventListener("click", function() {
+    document.getElementById("message").innerHTML =
+        "You learned Event Listeners!";
+});
+
+</script>
+
+</body>
+</html>
+
+Expected output:
+Welcome Students
+Learn JavaScript Events
+After clicking the button
+Welcome Students
+You learned Event Listeners!
+Additionally, a Welcome alert appears.
+Explain:
+
+One button has three event listeners. All three functions execute when the button is clicked.
+
+Difference between one-time and multiple listeners:
+One-time listener	Multiple listeners
+Executes only once	Multiple functions can respond to an event
+Uses { once: true }	Attach multiple listeners
+Automatically removed after execution	Remain active until removed
+
+
+PART 4: Difference between onclick and addEventListener()
+This is an important interview question too!
+onclick	addEventListener()
+Written as an HTML attribute or assigned in JS	Added using JavaScript
+Generally one handler per element property	Supports multiple handlers
+onclick="show()"	addEventListener("click", show)
+Cannot use the { once: true } option directly	Supports { once: true }
+
+PART 5: Classroom activities
+Here are some small practical tasks you can give your students after explaining the concepts.
+Function activities
+5 tasks
+
+1. Create a function to print your name.
+2. Create a function that accepts two numbers and prints their sum.
+3. Create a function that accepts a student's name and age.
+4. Create a function to calculate the area of a rectangle.
+5. Create a bank account closure with a balance variable and a deposit function.
+
+Event activities
+6 tasks
+
+1. Create a button that displays your name when clicked.
+2. Create a dropdown with three courses and display the selected course.
+3. Change the background color when the mouse moves over a box.
+4. Change the text color when the mouse leaves a heading.
+5. Display the pressed keyboard key inside a paragraph.
+6. Create a button that works only once using addEventListener().
+
+**
+**
+**
+**
+**
+
+
+
+PART 6: Quick revision for students
+You can use this table at the end of your class.
+Topic	Simple meaning
+Function	Reusable block of code
+Parameter	Variable that receives a value
+Argument	Actual value passed to a function
+Invocation	Executing a function
+call()	Calls function with a specified this value and individual arguments
+apply()	Calls function with a specified this value and arguments in an array
+Closure	Inner function remembers outer function variables
+Event	An action performed in the browser
+onclick	When the user clicks
+onchange	When a value changes
+onmouseover	When mouse moves over an element
+onmouseout	When mouse moves away
+onkeydown	When a keyboard key is pressed
+onload	When a page/resource finishes loading
+addEventListener()	Attaches an event handler
+
+
+My suggested teaching order for tomorrow
+Since there are many topics, I recommend splitting the class into two sections.
+Session 1 – Functions
+1. Function introduction
+2. Function definition and parameters
+3. Function invocation
+4. call() and apply()
+5. Closures
+
+Session 2 – Events
+1. What are events?
+2. onclick and onchange
+3. onmouseover and onmouseout
+4. onkeydown and onload
+5. addEventListener()
+6. One-time and multiple event listeners
+
+
+
+
+
+
+
+
+
+
+
+
