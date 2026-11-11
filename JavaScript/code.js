@@ -196,3 +196,67 @@ button.addEventListener("click", function() {
 </body>
 </html>
 
+
+
+    
+
+// 1. Event Listener – One Time
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<button id="btn">Click Me</button>
+
+<script>
+let button = document.getElementById("btn");
+
+button.addEventListener("click", function() {
+    alert("Button clicked!");
+}, { once: true });
+
+</script>
+
+</body>
+</html>
+
+
+
+// 2. Multiple Event Listeners
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2 id="heading">Welcome Students</h2>
+
+<button id="btn">Click Me</button>
+
+<script>
+
+let button = document.getElementById("btn");
+
+button.addEventListener("click", function() {
+    alert("Welcome!");
+});
+
+button.addEventListener("click", function() {
+    document.getElementById("heading").style.color = "red";
+});
+
+button.addEventListener("click", function() {
+    document.getElementById("heading").innerHTML = "Hello JavaScript!";
+});
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
