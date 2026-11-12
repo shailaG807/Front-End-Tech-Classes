@@ -1,0 +1,111 @@
+1. Execution Context
+
+let a = 10;
+let b = 20;
+
+function add() {
+    let sum = a + b;
+    console.log(sum);
+}
+
+add();
+
+output 30
+
+Memory Creation Phase: JavaScript allocates memory for variables and functions.
+Code Execution Phase: JavaScript executes the code line by line.
+
+  2. Execution Stack (Call Stack)
+
+function first() {
+    console.log("First Function");
+}
+
+function second() {
+    console.log("Second Function");
+}
+
+function third() {
+    console.log("Third Function");
+}
+
+first();
+second();
+third();
+
+output
+First Function
+Second Function
+Third Function
+
+
+1. Creation Phase (Memory Creation Phase)
+var a = 10;
+
+function greet() {
+    console.log("Hello Students");
+}
+
+During the Creation Phase:
+Variable / Function	Memory value
+a	undefined
+greet	Function definition
+2. Execution Phase (Code Execution Phase)
+
+var a = 10;
+
+function greet() {
+    console.log("Hello Students");
+}
+
+greet();
+During the Execution Phase:
+1. a = 10 → Value assigned.
+2. greet() → Function gets called.
+3. console.log() → Prints the message.
+
+
+
+  3. Hoisting
+
+Example 1: var
+console.log(a);
+
+var a = 10;
+
+output undefined
+
+
+  Example 2: let and const
+console.log(a);
+
+let a = 10;
+
+output ReferenceError
+
+Example 3: Function hoisting
+
+greet();
+
+function greet() {
+    console.log("Hello Students");
+}
+
+output: Hello Students
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
