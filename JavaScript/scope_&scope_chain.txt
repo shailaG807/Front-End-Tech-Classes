@@ -1,0 +1,251 @@
+1. What is Scope in JavaScript?
+Definition: Scope means the area or location where a variable can be accessed or used in JavaScript.
+
+Scope tells us where we can use a variable in our program.
+
+JavaScript has mainly 3 types of scope:
+1. Global Scope
+2. Function Scope
+3. Block Scope
+
+A. Global Scope
+A variable declared outside all functions and blocks is called a global variable.
+
+let name = "Neha";
+
+function student() {
+    console.log(name);
+}
+
+student();
+
+console.log(name);
+
+Output:
+Neha
+Neha
+
+Explanation:
+- name is declared outside the function.
+- So it is a global variable.
+- We can access it inside and outside the function.
+
+
+
+B. Function Scope
+
+A variable declared inside a function can be accessed only inside that function.
+
+
+function student() {
+
+    let age = 22;
+
+    console.log(age);
+}
+
+student();
+
+console.log(age);
+
+Output:
+22
+ReferenceError: age is not defined
+
+
+Explanation:
+- age is declared inside the function.
+- We can access it inside the function.
+- We cannot access it outside the function.
+
+C. Block Scope
+
+A block means code written inside curly brackets { }, such as inside if, for, etc.
+
+Variables declared using let and const inside a block can be accessed only inside that block.
+
+if (true) {
+
+    let city = "Bangalore";
+
+    console.log(city);
+}
+
+console.log(city);
+
+Output:
+Bangalore
+ReferenceError: city is not defined
+
+Explanation:
+- city is declared inside the if block.
+- It works inside the block.
+- It cannot be accessed outside the block.
+
+
+
+2. What is Scope Chain?
+
+Definition: Scope Chain is the process JavaScript uses to find a variable in the current scope and, if it is not found, look in its outer scope.
+
+In simple words:
+
+If JavaScript cannot find a variable inside the current function, it checks the parent scope. If it still cannot find it, it checks the global scope.
+
+let name = "Neha";
+
+function student() {
+
+    let course = "JavaScript";
+
+    function display() {
+
+        let age = 22;
+
+        console.log(name);
+        console.log(course);
+        console.log(age);
+    }
+
+    display();
+}
+
+student();
+
+Output:
+Neha
+JavaScript
+22
+Scope Chain – Visual Explanation
+
+Global Scope
+
+name = "Neha"
+
+student() Function Scope
+
+course = "JavaScript"
+
+display() Function Scope
+
+age = 22
+
+(Can access all 3 variables)
+
+
+The inner function can access its own variables and variables from its outer scopes.
+
+Remember:
+- age is found in the display function.
+- course is found in the parent function.
+- name is found in the global scope.
+
+3. Difference between var, let and const
+These three keywords are used to declare variables in JavaScript.
+A. var
+var is the old way of declaring variables in JavaScript.
+
+Example:
+var name = "Neha";
+
+console.log(name);
+
+var name = "Rahul";
+
+console.log(name);
+
+Output:
+Neha
+Rahul
+
+
+Explanation:
+- We can redeclare a variable using var.
+- We can update its value.
+- It has function scope, not block scope.
+
+B. let
+let is used when we want to declare a variable whose value may change.
+
+Example:
+let age = 22;
+
+console.log(age);
+
+age = 25;
+
+console.log(age);
+
+Output:
+22
+25
+
+Explanation:
+- We can update the value.
+- We cannot redeclare the same variable in the same scope.
+- It has block scope.
+
+C. const
+const is used when we don't want to reassign a variable after declaring it.
+
+Example:
+const country = "India";
+
+console.log(country);
+
+country = "USA";
+
+Output:
+India
+TypeError: Assignment to constant variable
+
+Explanation:
+- We cannot reassign a const variable.
+- We cannot redeclare it in the same scope.
+- It has block scope.
+- We must assign a value when declaring it.
+
+
+Simple Example: var, let and const inside an if block
+
+if (true) {
+
+    let a = 20;
+    var b = 20;
+    const c = 30;
+
+    console.log(a);
+    console.log(b);
+    console.log(c);
+
+}
+
+Output:
+20
+20
+30
+
+Now try accessing the variables outside the block:
+if (true) {
+
+    let a = 20;
+    var b = 20;
+    const c = 30;
+
+}
+
+console.log(a);
+console.log(b);
+console.log(c);
+
+Output:
+ReferenceError: a is not defined
+20
+ReferenceError: c is not defined
+
+
+
+
+
+
+
