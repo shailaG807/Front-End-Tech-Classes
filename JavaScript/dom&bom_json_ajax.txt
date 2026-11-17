@@ -1,0 +1,226 @@
+1. BOM – Browser Object Model
+
+Definition: BOM stands for Browser Object Model. It allows JavaScript to interact with the browser window and its features.
+  In simple words: BOM helps JavaScript communicate with the browser.
+
+  Example: Opening a new window, showing an alert, checking browser information, navigating to another page.
+    Important BOM Objects
+
+    Object	Purpose
+window: 	Represents the browser window
+screen: 	Provides screen information
+location: 	Provides current URL information
+history: 	   Provides browser history
+navigator:  	Provides browser information
+
+  A. Window Object 
+  The window object represents the browser window.
+
+  console.log(window.innerWidth);
+console.log(window.innerHeight);
+
+alert("Welcome Students!");
+
+B. Screen Object
+  Provides information about the user's screen.
+
+  console.log(screen.width);
+console.log(screen.height);
+console.log(screen.colorDepth);
+
+C. Location Object
+Provides information about the current webpage URL.
+
+  console.log(location.href);
+console.log(location.hostname);
+console.log(location.pathname);
+
+To redirect to another website:
+location.href = "https://www.google.com";
+
+D. History Object
+  Used to navigate through previously visited pages.
+
+  history.back();
+history.forward();
+history.go(-1);
+
+E. Navigator Object
+  Provides information about the browser.
+
+  console.log(navigator.userAgent);
+console.log(navigator.language);
+console.log(navigator.onLine);
+
+Simple real-time example: When we click the browser's Back button, the browser 
+navigates to the previous page. JavaScript can perform similar navigation using history.back().
+
+  2. JSON – JavaScript Object Notation
+Definition: JSON stands for JavaScript Object Notation. It is a lightweight format used to store and exchange data between applications.
+In simple words: JSON is a format used to send and receive data between a client and a server.
+  Why do we use JSON?
+- To exchange data between frontend and backend.
+- To send data through APIs.
+- To store structured information.
+- It is easy to read and understand.
+
+  A. Simple JSON Example
+  
+  {
+    "name": "John",
+    "age": 22,
+    "city": "Bangalore"
+}
+
+Here:
+- name, age, city are keys.
+- "John", 22, "Bangalore" are values.
+
+  B. JSON Object
+  
+let student = {
+    "name": "Rahul",
+    "age": 23,
+    "course": "JavaScript"
+};
+
+console.log(student.name);
+console.log(student.age);
+
+output
+Rahul
+23
+
+  C. JSON Array
+JSON array stores multiple values or objects.
+
+  let students = [
+    {
+        "name": "Neha",
+        "age": 22
+    },
+    {
+        "name": "Rahul",
+        "age": 23
+    },
+    {
+        "name": "Amit",
+        "age": 24
+    }
+];
+
+console.log(students[0].name);
+console.log(students[1].name);
+
+Output:
+Neha
+Rahul
+
+
+  JSON vs XML
+JSON	                         XML
+Uses key-value pairs	      Uses tags
+Lightweight	                More verbose
+Easy to read	              Uses opening and closing tags
+Commonly used in APIs	      Used in data exchange systems
+
+  JSON Example:
+  {
+  "name": "Neha",
+  "age": 22
+}
+
+XML Example:
+<student>
+    <name>Neha</name>
+    <age>22</age>
+</student>
+
+
+  3. AJAX – Asynchronous JavaScript and XML
+  Definition: AJAX stands for Asynchronous JavaScript and XML. It allows a 
+  webpage to communicate with a server and update data without reloading the entire webpage.
+
+    In simple words: AJAX helps us send and receive data from a server without refreshing the page.
+    
+    Why do we use AJAX?
+1. To load data without refreshing the webpage.
+2. To submit forms without reloading.
+3. To search data dynamically.
+4. To update webpage content automatically after receiving server responses.
+
+    Real-time example
+    Imagine a student registration website.
+    When a student enters their email address, the website checks whether that email already exists.
+- Student enters email.
+- JavaScript sends a request to the server.
+- Server checks the email.
+- Server sends a response.
+- The webpage displays Available or Already Exists.
+The entire webpage does not need to reload.
+    
+    How AJAX works
+1. User / Browser
+
+User clicks a button or enters data
+
+2. JavaScript / AJAX
+
+Sends a request to the server
+
+3. Server
+
+Processes the request and returns data
+
+4. Browser
+
+Displays updated information without full page reload
+
+
+    
+
+    A. XMLHttpRequest
+    XMLHttpRequest (XHR) is a JavaScript object used to send HTTP requests to a server and receive responses.
+
+    Basic example:
+    
+    let xhr = new XMLHttpRequest();
+
+xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
+
+xhr.onload = function() {
+    console.log(xhr.responseText);
+};
+
+xhr.send();
+
+Explanation:
+- XMLHttpRequest() creates a request object.
+- open() specifies the HTTP method and URL.
+- onload runs when the response is received.
+- send() sends the request.
+
+  
+
+  
+
+  
+
+  
+  
+  
+
+
+  
+
+
+
+  
+
+
+
+
+  
+
+
+    
