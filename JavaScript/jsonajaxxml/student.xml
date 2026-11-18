@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<student>
+    <name>Rahul</name>
+    <age>23</age>
+    <course>Python</course>
+    <city>Mysore</city>
+</student>
