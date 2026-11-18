@@ -1,0 +1,173 @@
+<!-- Goal: Store student details in a JSON file and display them on an HTML page using JavaScript. -->
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>JSON Example</title>
+</head>
+<body>
+
+    <h2>Student Details</h2>
+
+    <div id="result"></div>
+
+    <script>
+
+        fetch("student.json")
+        .then(response => response.json())
+        .then(data => {
+
+            document.getElementById("result").innerHTML =
+                "Name: " + data.name + "<br>" +
+                "Age: " + data.age + "<br>" +
+                "Course: " + data.course + "<br>" +
+                "City: " + data.city;
+
+        });
+
+    </script>
+
+</body>
+</html> -->
+
+
+
+
+
+
+<!-- Goal: Store student details in XML format and display them on an HTML page. -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>XML Example</title>
+</head>
+<body>
+
+    <h2>Student Details Using XML</h2>
+
+    <div id="result"></div>
+
+    <script>
+
+        fetch("student.xml")
+        .then(response => response.text())
+        .then(data => {
+
+            let parser = new DOMParser();
+
+            let xml = parser.parseFromString(data, "text/xml");
+
+            let name = xml.getElementsByTagName("name")[0].textContent;
+            let age = xml.getElementsByTagName("age")[0].textContent;
+            let course = xml.getElementsByTagName("course")[0].textContent;
+            let city = xml.getElementsByTagName("city")[0].textContent;
+
+            document.getElementById("result").innerHTML =
+                "Name: " + name + "<br>" +
+                "Age: " + age + "<br>" +
+                "Course: " + course + "<br>" +
+                "City: " + city;
+
+        });
+
+    </script>
+
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- Goal: Fetch user details from an online server and display them on 
+ our webpage without refreshing the entire page. -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Example</title>
+</head>
+<body>
+
+    <h2>AJAX - Load User Details</h2>
+
+    <button onclick="loadUser()">Load User</button>
+
+    <div id="result"></div>
+
+    <script>
+
+        function loadUser() {
+
+            let xhr = new XMLHttpRequest();
+
+            xhr.open("GET", "https://jsonplaceholder.typicode.com/users/5");
+
+            xhr.onload = function() {
+
+                let data = JSON.parse(xhr.responseText);
+
+                document.getElementById("result").innerHTML =
+                    "Name: " + data.name + "<br>" +
+                    "Email: " + data.email + "<br>" +
+                    "City: " + data.address.city;
+
+            };
+
+            xhr.send();
+
+        }
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 4. Understand the difference between all three practicals
+Topic	     Where is data coming from?	         What happens?
+JSON	     Local JSON file	                 Reads student data
+XML	         Local XML file	                     Reads XML tags
+AJAX	     Online server/API	                 Fetches user data -->
+
+
+
+
+
+<!-- 
+Give this activity to your students
+Ask students to create the same three practicals independently.
+1. JSON: Create employee details with name, ID, salary and department.
+2. XML: Create product details with product name, price and brand.
+3. AJAX: Fetch user details from the second user API URL: -->
+
+
+
